@@ -24,6 +24,10 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 	});
 	mediaRecorder.ondataavailable = e => chunks.push(e.data);
 	mediaRecorder.onstop = async _ => {
+		if (!toUpload) {
+			newWord();
+			return;
+		}
 		const formData = new FormData();
 		const blob = new Blob(chunks, {'type': chunks[0].type});
 		formData.append('audio', blob);
