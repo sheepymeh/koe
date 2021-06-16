@@ -37,7 +37,7 @@ const wordlist = ['snake', 'falcon'];
 		if (!choice || e.target === e.currentTarget || e.target.dataset.word == undefined) return;
 		choice = false;
 		for (const button of answerButtons) button.classList.add('disabled');
-		prompt.innerText = 'Please click on the play button.';
+		prompt.innerText = 'Loading...';
 		e.stopPropagation();
 		await fetch('verify_answer.php', {
 			method: 'POST',
@@ -48,6 +48,7 @@ const wordlist = ['snake', 'falcon'];
 		});
 		playButton.removeEventListener('click', play);
 		playButton.addEventListener('click', newWord);
+		newWord();
 	}
 
 	playButton.addEventListener('click', newWord);
