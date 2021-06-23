@@ -26,7 +26,7 @@ h2 {
 }
 
 .gradient {
-	transition: .2s background-size ease-in-out;
+	transition: .1s background-size ease-in-out;
 	background-position: center;
 	background-size: 100%;
 }
@@ -87,7 +87,7 @@ h2 {
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	transition: .1s filter ease-in-out;
+	transition: .1s filter ease-in-out, .1s background-size ease-in-out;
 }
 .button.no-cursor {
 	cursor: initial;

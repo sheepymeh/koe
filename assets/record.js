@@ -1,6 +1,7 @@
-const wordlist = ['snake', 'falcon'];
-
 (async () => {
+const wordlist_req = await fetch('config.php');
+const wordlist = await wordlist_req.json();
+
 if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 	if (!localStorage.getItem('microphonePerms')) alert('Please enable the microphone after clicking "OK"');
 
@@ -76,17 +77,17 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 		// record.classList.remove('disabled');
 		recordPrompt.innerText = 'Hold to Record';
 		chunks = [];
-		if (currentword && prevword == currentword) {
-			prevword = currentword;
-			let templist = wordlist.slice();
-			templist.splice(wordindex, 1);
-			currentword = templist[Math.floor(Math.random() * templist.length)];
-		}
-		else {
+		// if (currentword && prevword == currentword) {
+		// 	prevword = currentword;
+		// 	let templist = wordlist.slice();
+		// 	templist.splice(wordindex, 1);
+		// 	currentword = templist[Math.floor(Math.random() * templist.length)];
+		// }
+		// else {
 			wordindex = Math.floor(Math.random() * wordlist.length);
 			prevword = currentword;
 			currentword = wordlist[wordindex];
-		}
+		// }
 		wordPrompt.innerText = `Say the word${prevword == currentword ? ' again' : ''}`;
 		wordElem.innerText = currentword;
 		record.addEventListener('mousedown', startRecord);

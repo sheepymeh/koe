@@ -20,9 +20,11 @@
 	</main>
 	<div id='answer-button' class='button no-cursor gradient gradient-orange'>
 		<h3>Please click on the play button.</h3>
+		<?php
+			foreach ($CONFIG['wordlist'] as $word)
+				echo "<div class='icon-rect text-orange disabled' data-word='$word'>$word</div>";
+		?>
 
-		<div class='icon-rect text-orange disabled' data-word='falcon'>falcon</div>
-		<div class='icon-rect text-orange disabled' data-word='snake'>snake</div>
 		<div class='icon-rect text-orange disabled' data-word='neither'>Neither/Incomplete recording</div>
 	</div>
 	<script src='assets/verify.js'></script>

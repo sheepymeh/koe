@@ -1,5 +1,3 @@
-const wordlist = ['snake', 'falcon'];
-
 (async () => {
 	let choice = false;
 	let audioObj = new Audio();
